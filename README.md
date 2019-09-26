@@ -1,4 +1,4 @@
-#AZ Festival Dashboard
+# AZ Festival Dashboard
 
 A new dashboard that allows for only Group Leaders and Bible Center Managers to input the numbers.
 
