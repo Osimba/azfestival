@@ -13,7 +13,7 @@
 		$yumaWeek[5] = $Group->getWeekTable(1020, 1026, 'yuma');
 		$yumaWeek[6] = $Group->getWeekTable(1027, 1029, 'yuma');
 
-		echo $Group->drawTable(1, $yumaWeek[1]);
+		
 		
 		include("views/v_group-admin.php");
 

@@ -78,22 +78,111 @@ class Group extends Dbh {
 	public function drawTable($weekNumber, $weekData) {
 		$output = '';
 
-		/*$output .= "<table id=week'" . $weekNumber . "'>
+		$output .= "<table id=week'" . $weekNumber . "'>
 						<thead class='table-header'>
 							<tr class='btn-primary'>
 								<th class='contents'>Week " . $weekNumber . "</th>";
 
-*/
+
 		foreach ($weekData as $date => $content) {
-			$output .= $date . " - Connected - " . $content['connected'] . "<br>";
-			$output .= $date . " - Unconnected - " . $content['unconnected'] . "<br>";
-			$output .= $date . " - Come & See - " . $content['come_see'] . "<br>";
-			$output .= $date . " - Baptism Count - " . $content['baptism'] . "<br>";
-			$output .= $date . " - Bible Studies - " . $content['bible_study'] . "<br>";
-			$output .= $date . " - EA Signatures - " . $content['elohim_academy'] . "<br>";
-			$output .= $date . " - MS Signatures - " . $content['moses_staff'] . "<br>";
-			$output .= "<br><br>";
+			$output .= "<th class='date'>" . $date . "</th>";
 		}
+
+
+		$output .= "<th>Total</th>
+					<th>Gospel Points</th>
+					</tr>
+					</thead>";
+
+		$output .= "<tbody class='table-body'>";
+		
+		//Connected
+		$output .= "<tr>
+						<td class='contents'>Connected</td>";
+
+		foreach($weekData as $date => $content) {
+			$output .= "<td><input type='number' name='connected-data' min='0' value='" . $content['connected'] . "'></td>";
+		}
+							
+		$output .= "<td class='week-total'></td>
+					<td class='week-points'></td>
+					</tr>";
+
+		//Unconnected
+		$output .= "<tr>
+						<td class='contents'>Unconnected</td>";
+
+		foreach($weekData as $date => $content) {
+			$output .= "<td><input type='number' name='unconnected-data' min='0' value='" . $content['unconnected'] . "'></td>";
+		}
+							
+		$output .= "<td class='week-total'></td>
+					<td class='week-points'></td>
+					</tr>";
+
+		//Come & See
+		$output .= "<tr>
+						<td class='contents'>Come & See</td>";
+
+		foreach($weekData as $date => $content) {
+			$output .= "<td><input type='number' name='come_see-data' min='0' value='" . $content['come_see'] . "'></td>";
+		}
+							
+		$output .= "<td class='week-total'></td>
+					<td class='week-points'></td>
+					</tr>";
+
+		//Baptism
+		$output .= "<tr>
+						<td class='contents'>Baptism Count</td>";
+
+		foreach($weekData as $date => $content) {
+			$output .= "<td><input type='number' name='baptism-data' min='0' value='" . $content['baptism'] . "'></td>";
+		}
+							
+		$output .= "<td class='week-total'></td>
+					<td class='week-points'></td>
+					</tr>";
+
+		//Bible Studies
+		$output .= "<tr>
+						<td class='contents'>Bible Studies</td>";
+
+		foreach($weekData as $date => $content) {
+			$output .= "<td><input type='number' name='bible_study-data' min='0' value='" . $content['bible_study'] . "'></td>";
+		}
+							
+		$output .= "<td class='week-total'></td>
+					<td class='week-points'></td>
+					</tr>";
+
+		//EA Confirmations
+		$output .= "<tr>
+						<td class='contents'>EA Confirmations</td>";
+
+		foreach($weekData as $date => $content) {
+			$output .= "<td><input type='number' name='elohim_academy-data' min='0' value='" . $content['elohim_academy'] . "'></td>";
+		}
+							
+		$output .= "<td class='week-total'></td>
+					<td class='week-points'></td>
+					</tr>";
+
+		//MS Confirmations
+		$output .= "<tr>
+						<td class='contents'>MS Confirmations</td>";
+
+		foreach($weekData as $date => $content) {
+			$output .= "<td><input type='number' name='moses_staff-data' min='0' value='" . $content['moses_staff'] . "'></td>";
+		}
+							
+		$output .= "<td class='week-total'></td>
+					<td class='week-points'></td>
+					</tr>";
+
+		//Closing Table
+		$output .= "</tbody>
+					</table>";
 
 
 		return $output;
