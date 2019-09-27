@@ -67,6 +67,17 @@ img.img-thumbnail {
 .login-form select {
 	margin-bottom: 16px;
 }
+table, td, th {
+	border: solid 1px black;
+}
+td {
+	width: 100px;
+	min-width: 60px;
+}
+	td input {
+		width: 100%;
+	}
+
 
 
 @media only screen and (max-width: 480px) {
