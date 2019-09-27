@@ -4,7 +4,7 @@
 	<h1>[Group Name] Admin Input</h1>
 
 	<table id="week1">
-		<thead id="test" class="table-header">
+		<thead class="table-header">
 			<tr class="btn-primary">
 				<th class="contents">Week 1</th>
 				<th class="date">9/23</th>
