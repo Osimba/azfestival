@@ -67,16 +67,52 @@ img.img-thumbnail {
 .login-form select {
 	margin-bottom: 16px;
 }
-table, td, th {
-	border: solid 1px black;
+table {
+	
 }
-td {
+table {
+	margin: 0 auto;
+	width: 100%;
+	border: 1px solid black;
+	overflow: hidden;
+	border-collapse: collapse;
+}
+	table .table-header {
+		height: 50px;
+		cursor: pointer;
+	}
+	th {
+		padding: 5px 10px;
+	}
+	/*
+	th:first-child { 
+		-webkit-border-radius:25px 0 0 0; 
+		border-left:none;
+		border-top: none;
+	}
+	th:last-child { 
+		-webkit-border-radius: 0 25px 0 0;
+		border-right: none; 
+		border-top: none;
+	}*/
+	table .contents {
+		width: 200px;
+		min-width: 200px;
+	}
+
+
+td, th {
 	width: 100px;
 	min-width: 60px;
+	border: solid 1px black;
 }
 	td input {
 		width: 100%;
+		border: none;
 	}
+table .table-body {
+	max-height: 0;
+}
 
 
 
