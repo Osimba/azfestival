@@ -46,8 +46,6 @@
 		<input class="btn btn-primary btn-block" type="submit" name="login" value="Login">
 		
 	</form>
-
-	<a href="./forgot-password.php">Forgot Password</a>
 </main>
 
 <?php include("views/headers/footer.php"); ?>

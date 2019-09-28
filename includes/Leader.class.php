@@ -31,6 +31,30 @@ class Leader extends Dbh {
 	
 	}
 
+	public function getLeaderInfo($leaderName) {
+
+		$conn = $this->connect();
+
+		try {
+
+			$stmt = $conn->prepare("SELECT title, goal, gospel_points FROM leader WHERE name = :leaderName");
+			$stmt->bindParam(':leaderName', $leaderName);
+			$stmt->execute();
+
+			if($row = $stmt->fetch()) {
+				$leaderRow['title'] = $row['title'];
+				$leaderRow['goal'] = $row['goal'];
+				$leaderRow['gospel_points'] = $row['gospel_points'];
+			}
+
+			return $leaderRow;
+			
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+
+	}
+
 	public function setGospelPoints($leaderName, $gospelPoints) {
 
 		$conn = $this->connect();

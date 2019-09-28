@@ -3,6 +3,181 @@
 	$leaderArray = $Leader->getAllLeadersInfo();
 ?>
 
+<script type="text/javascript">
+	
+	/* Charts Code */
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawGroupChart0);
+	google.charts.setOnLoadCallback(drawGroupChart1);
+	google.charts.setOnLoadCallback(drawGroupChart2);
+	google.charts.setOnLoadCallback(drawGroupChart3);
+	google.charts.setOnLoadCallback(drawGroupChart4);
+
+	function drawGroupChart0() {
+		// Some raw data (not necessarily accurate)
+        var oldData = google.visualization.arrayToDataTable([
+	      ['Name', 'Goal'],
+	      <?php 
+	      	foreach($sortedLeaderArray[0] as $groupArray) {
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['goal'] . "],"; 
+
+	      	}
+	      ?>
+	      
+	    ]);
+
+	    var newData = google.visualization.arrayToDataTable([
+	      ['Name', 'Gospel Points'],
+	      <?php 
+	      	foreach($sortedLeaderArray[0] as $groupArray) {
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['gospel_points'] . "],"; 
+
+	      	}
+	      ?>
+	    ]);
+
+	    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('group-stats0'));
+
+	    var options = { legend: { position: 'none' } };
+
+	    var diffData = colChartDiff.computeDiff(oldData, newData);
+	    colChartDiff.draw(diffData, options);
+
+	}
+
+
+	function drawGroupChart1() {
+		// Some raw data (not necessarily accurate)
+        var oldData = google.visualization.arrayToDataTable([
+	      ['Name', 'Goal'],
+	      <?php 
+	      	foreach($sortedLeaderArray[1] as $groupArray) {
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['goal'] . "],"; 
+
+	      	}
+	      ?>
+	      
+	    ]);
+
+	    var newData = google.visualization.arrayToDataTable([
+	      ['Name', 'Gospel Points'],
+	      <?php 
+	      	foreach($sortedLeaderArray[1] as $groupArray) {
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['gospel_points'] . "],"; 
+
+	      	}
+	      ?>
+	    ]);
+
+	    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('group-stats1'));
+
+	    var options = { legend: { position: 'none' } };
+
+	    var diffData = colChartDiff.computeDiff(oldData, newData);
+	    colChartDiff.draw(diffData, options);
+
+	}	
+
+
+	function drawGroupChart2() {
+		// Some raw data (not necessarily accurate)
+        var oldData = google.visualization.arrayToDataTable([
+	      ['Name', 'Goal'],
+	      <?php 
+	      	foreach($sortedLeaderArray[2] as $groupArray) {
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['goal'] . "],"; 
+
+	      	}
+	      ?>
+	      
+	    ]);
+
+	    var newData = google.visualization.arrayToDataTable([
+	      ['Name', 'Gospel Points'],
+	      <?php 
+	      	foreach($sortedLeaderArray[2] as $groupArray) {
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['gospel_points'] . "],"; 
+
+	      	}
+	      ?>
+	    ]);
+
+	    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('group-stats2'));
+
+	    var options = { legend: { position: 'none' } };
+
+	    var diffData = colChartDiff.computeDiff(oldData, newData);
+	    colChartDiff.draw(diffData, options);
+
+	}	
+
+
+	function drawGroupChart3() {
+		// Some raw data (not necessarily accurate)
+        var oldData = google.visualization.arrayToDataTable([
+	      ['Name', 'Goal'],
+	      <?php 
+	      	foreach($sortedLeaderArray[3] as $groupArray) {
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['goal'] . "],"; 
+
+	      	}
+	      ?>
+	      
+	    ]);
+
+	    var newData = google.visualization.arrayToDataTable([
+	      ['Name', 'Gospel Points'],
+	      <?php 
+	      	foreach($sortedLeaderArray[3] as $groupArray) {
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['gospel_points'] . "],"; 
+
+	      	}
+	      ?>
+	    ]);
+
+	    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('group-stats3'));
+
+	    var options = { legend: { position: 'none' } };
+
+	    var diffData = colChartDiff.computeDiff(oldData, newData);
+	    colChartDiff.draw(diffData, options);
+
+	}
+
+	function drawGroupChart4() {
+		// Some raw data (not necessarily accurate)
+        var oldData = google.visualization.arrayToDataTable([
+	      ['Name', 'Goal'],
+	      <?php 
+	      	foreach($sortedLeaderArray[4] as $groupArray) {
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['goal'] . "],"; 
+
+	      	}
+	      ?>
+	      
+	    ]);
+
+	    var newData = google.visualization.arrayToDataTable([
+	      ['Name', 'Gospel Points'],
+	      <?php 
+	      	foreach($sortedLeaderArray[4] as $groupArray) {
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['gospel_points'] . "],"; 
+
+	      	}
+	      ?>
+	    ]);
+
+	    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('group-stats4'));
+
+	    var options = { legend: { position: 'none' } };
+
+	    var diffData = colChartDiff.computeDiff(oldData, newData);
+	    colChartDiff.draw(diffData, options);
+
+	}
+
+</script>
+
 <div class="banner">
 		<div class="overlay">
 			<h1>I'm Sorry Please Forgive Us</h1> 
@@ -19,37 +194,21 @@
 
 	<hr>
 
-	<!--
-	<section>
-		<h1>Acheivements</h1>
-	</section>
-	-->
-
 	<main id="church-stats" class="container text-center">
 		<h1>Results</h1>
-		<p>Still Under Construction - I'm sorry, please forgive me...</p>
+		<img src="<?php echo IMAGE_DIR . 'legend.JPG'; ?>">
 
 		<div class="row">
 
-			<?php 
-				foreach($leaderArray as $leaderInfo) {
-					$totalPoints = $Group->getTotalPoints($leaderInfo['name']);
-					$Leader->setGospelPoints($leaderInfo['name'], $totalPoints) 
-			?>
+			<?php foreach($sortedLeaderArray as $key=>$groupArray) { ?>
 
-				<div class="col-md-6">
-					<h2><?= $leaderInfo['title'] ?></h2>
-					<h2>Goal: <?= $leaderInfo['goal']?></h2>
-					<h2>Current: <?= $totalPoints ?></h2>
-
-					<div class="zion-stats" id="<?= $leaderInfo['name'] ?>-group-stats"></div>
-				</div>
+				<div class="zion-stats" id="group-stats<?php echo $key; ?>"></div>
+					
 			<?php } ?>
 
 		</div>
 
-		
-		
+			
 		
 		<h1>Bear Good Fruit!</h1>
 		<img src="images/wah.png" class="img-thumbnail">

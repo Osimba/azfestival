@@ -15,10 +15,5 @@
 <button id="update-data" class="btn btn-primary btn-block">Update</button>
 </main>
 
-<script src="https://code.jquery.com/jquery-3.4.1.js"
-			integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-			crossorigin="anonymous"></script>
-
-<script src="js/app.js"	type="text/javascript"></script>	
 
 <?php include("views/headers/footer.php"); ?>

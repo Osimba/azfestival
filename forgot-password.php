@@ -5,5 +5,5 @@
 	
 
 
-	include("./views/v_forgot-password.php");
+	header('location: ./login-admin.php');
 ?>

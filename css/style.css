@@ -51,8 +51,8 @@ main h2 {
 
 }
 #church-stats .zion-stats {
-	width: 400px;
-	height: 350px;
+	width: 100%;
+	height: 400px;
 	margin: 30px auto;
 }
 
