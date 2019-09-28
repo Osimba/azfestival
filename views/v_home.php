@@ -22,8 +22,9 @@
 	</section>
 	-->
 
-	<main id="church-stats" class="container">
+	<main id="church-stats" class="container text-center">
 		<h1>Results</h1>
+		<p>Coming Soon - I'm sorry, please forgive me...</p>
 
 		<div class="row">
 

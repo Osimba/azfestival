@@ -76,7 +76,7 @@ class Group extends Dbh {
 
 
 		foreach ($weekData as $date => $content) {
-			$output .= "<th class='date'>" . $date . "</th>";
+			$output .= "<th class='date'>" . substr_replace(strval($date), "/", -2, 0) . "</th>";
 		}
 
 
@@ -91,84 +91,104 @@ class Group extends Dbh {
 		$output .= "<tr>
 						<td class='contents'>Connected</td>";
 
+		$total = 0;				
 		foreach($weekData as $date => $content) {
-			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-connected-" . $date . "' min='0' value='" . $content['connected'] . "'></td>";
+			$total += $content['connected'];
+			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-connected-" . $date . "' min='0' value='" . $content['connected'] . "' required onfocus='this.select()'></td>";
 		}
 							
-		$output .= "<td class='week-total'></td>
-					<td class='week-points'></td>
+		$output .= "<td class='week-total'>" . $total . "</td>
+					<td class='week-points'>" . $total * CONNECTED_VALUE . "</td>
 					</tr>";
 
 		//Unconnected
 		$output .= "<tr>
 						<td class='contents'>Unconnected</td>";
 
+		$total = 0;				
+		
 		foreach($weekData as $date => $content) {
-			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-unconnected-" . $date . "' min='0' value='" . $content['unconnected'] . "'></td>";
+			$total += $content['unconnected'];
+			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-unconnected-" . $date . "' min='0' value='" . $content['unconnected'] . "' required onfocus='this.select()'></td>";
 		}
 							
-		$output .= "<td class='week-total'></td>
-					<td class='week-points'></td>
+		$output .= "<td class='week-total'>" . $total . "</td>
+					<td class='week-points'>" . $total * UNCONNECTED_VALUE . "</td>
 					</tr>";
 
 		//Come & See
 		$output .= "<tr>
 						<td class='contents'>Come & See</td>";
 
+		$total = 0;				
+		
 		foreach($weekData as $date => $content) {
-			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-come_see-" . $date . "' min='0' value='" . $content['come_see'] . "'></td>";
+			$total += $content['come_see'];
+			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-come_see-" . $date . "' min='0' value='" . $content['come_see'] . "' required onfocus='this.select()'></td>";
 		}
 							
-		$output .= "<td class='week-total'></td>
-					<td class='week-points'></td>
+		$output .= "<td class='week-total'>" . $total . "</td>
+					<td class='week-points'>" . $total * COME_SEE_VALUE . "</td>
 					</tr>";
 
 		//Baptism
 		$output .= "<tr>
 						<td class='contents'>Baptism Count</td>";
 
+		$total = 0;				
+		
 		foreach($weekData as $date => $content) {
-			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-baptism-" . $date . "' min='0' value='" . $content['baptism'] . "'></td>";
+			$total += $content['baptism'];
+			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-baptism-" . $date . "' min='0' value='" . $content['baptism'] . "' required onfocus='this.select()'></td>";
 		}
 							
-		$output .= "<td class='week-total'></td>
-					<td class='week-points'></td>
+		$output .= "<td class='week-total'>" . $total . "</td>
+					<td class='week-points'>" . $total * BAPTISM_VALUE . "</td>
 					</tr>";
 
 		//Bible Studies
 		$output .= "<tr>
 						<td class='contents'>Bible Studies</td>";
 
+		$total = 0;				
+		
 		foreach($weekData as $date => $content) {
-			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-bible_study-" . $date . "' min='0' value='" . $content['bible_study'] . "'></td>";
+			$total += $content['bible_study'];
+			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-bible_study-" . $date . "' min='0' value='" . $content['bible_study'] . "' required onfocus='this.select()'></td>";
 		}
 							
-		$output .= "<td class='week-total'></td>
-					<td class='week-points'></td>
+		$output .= "<td class='week-total'>" . $total . "</td>
+					<td class='week-points'>" . $total * BIBLE_STUDY_VALUE . "</td>
 					</tr>";
 
 		//EA Confirmations
 		$output .= "<tr>
 						<td class='contents'>EA Confirmations</td>";
 
+		$total = 0;				
+		
 		foreach($weekData as $date => $content) {
-			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-elohim_academy-" . $date . "' min='0' value='" . $content['elohim_academy'] . "'></td>";
+			$total += $content['elohim_academy'];
+			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-elohim_academy-" . $date . "' min='0' value='" . $content['elohim_academy'] . "' required onfocus='this.select()'></td>";
 		}
 							
-		$output .= "<td class='week-total'></td>
-					<td class='week-points'></td>
+		$output .= "<td class='week-total'>" . $total . "</td>
+					<td class='week-points'>" . $total * ELOHIM_ACADEMY_VALUE . "</td>
 					</tr>";
 
 		//MS Confirmations
 		$output .= "<tr>
 						<td class='contents'>MS Confirmations</td>";
 
+		$total = 0;				
+		
 		foreach($weekData as $date => $content) {
-			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-moses_staff-" . $date . "' min='0' value='" . $content['moses_staff'] . "'></td>";
+			$total += $content['moses_staff'];
+			$output .= "<td><input class='content-data' type='number' name='" . $groupName . "-moses_staff-" . $date . "' min='0' value='" . $content['moses_staff'] . "' required onfocus='this.select()'></td>";
 		}
 							
-		$output .= "<td class='week-total'></td>
-					<td class='week-points'></td>
+		$output .= "<td class='week-total'>" . $total . "</td>
+					<td class='week-points'>" . $total * MOSES_STAFF_VALUE . "</td>
 					</tr>";
 
 		//Closing Table
@@ -200,6 +220,31 @@ class Group extends Dbh {
 			return "There seems to be an error. Please try again!";
 		}	
 
+	}
+
+	private function getWeeklyContentTotal($content, $firstDayOfWeek, $lastDayOfWeek, $groupName) {
+
+		$conn = $this->connect();
+		$dayData = array();
+
+		$sql = "SELECT SUM(" . $content . ") AS total FROM " . $groupName . " WHERE day >= :firstDayOfWeek AND day <= :lastDayOfWeek";
+
+		try {
+
+			$stmt = $conn->prepare($sql);
+			$stmt->bindParam(':firstDayOfWeek', $firstDayOfWeek);
+			$stmt->bindParam(':lastDayOfWeek', $lastDayOfWeek);
+			$stmt->execute();
+
+			if($row = $stmt->fetch()) {
+
+				return $row['total'];
+				
+			}
+			
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
 	}
 
 }

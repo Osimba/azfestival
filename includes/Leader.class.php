@@ -26,42 +26,71 @@ class Leader extends Dbh {
 		$user = array();
 		$conn = $this->connect();
 
-		try {
-			
-			$stmt = $conn->prepare("SELECT * FROM users WHERE name = :leaderName AND password = :password");
-			$stmt->bindParam(':leaderName', $leaderName);
-			$stmt->bindParam(':password', $password);
-			$stmt->execute();
+		$hash = $this->getLeaderPassword($leaderName);
 
-			if($row = $stmt->fetch()) {
-				return true;
-			} 
+		if(!$hash['error']) {
 
-			return false;
-		} catch (Exception $e) {
-			echo "checkUserCredentials Error: " . $e->getMessage();
+			$auth = password_verify($password, $hash['password']);
+
+		} else {
+			$auth = false;
 		}
+
+		return $auth;
 	}
 
 
-	public function createPassword($groupName, $password) {
+	public function createPassword($leaderName, $password) {
 
 		$conn = $this->connect();
 
 		try {
 			
-			$stmt = $conn->prepare("INSERT INTO users (groupName, email, password) VALUES (:groupName, :email, :password)");
-			$stmt->bindParam(':groupName', $groupName);
-			$stmt->bindParam(':email', $email);
+			$stmt = $conn->prepare("UPDATE leader SET password = :password WHERE name = :leaderName");
 			$stmt->bindParam(':password', $password);
+			$stmt->bindParam(':leaderName', $leaderName);
+			
 			$stmt->execute();
 
-			return "Successfully created account!";
+			return "Successfully added password!";
 
 		} catch (Exception $e) {
-			return "Failed to add user: " . $e->getMessage();
+			return "Error: " . $e->getMessage();
 		}
 
+	}
+
+
+	/**
+	 * Get's leader password from database
+	 * 
+	 * @access private
+	 * @param  string
+	 * @return string
+	 */
+	private function getLeaderPassword($leaderName) {
+
+		$conn = $this->connect();
+
+
+		try {
+
+			$stmt = $conn->prepare("SELECT password FROM leader WHERE name = :leaderName");
+			$stmt->bindParam(':leaderName', $leaderName);
+			$stmt->execute();
+
+			$row = $stmt->fetch();
+			$row['error'] = false;
+				
+		} catch (Exception $e) {
+
+			echo "Error: " . $e->getMessage();
+		}
+
+
+
+		return $row;
+		
 	}
 
 	

@@ -32,8 +32,8 @@ $(document).ready(function() {
 						'changes': listOfChanges
 				},
 				success: function(response) {
-					//alert(response);
-					$("#admin-page").prepend(response);
+					alert(response);
+					window.location = "./admin.php"
 				}
 			});
 		}

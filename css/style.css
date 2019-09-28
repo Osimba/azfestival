@@ -82,10 +82,10 @@ table {
 	border: 1px solid black;
 	overflow: hidden;
 	border-collapse: collapse;
+	font-size: 1.6em;
 }
 	table .table-header {
 		height: 50px;
-		cursor: pointer;
 	}
 	th {
 		padding: 5px 10px;
@@ -115,7 +115,9 @@ td, th {
 	td input {
 		width: 100%;
 		border: none;
+		text-align: center;
 	}
+
 table .table-body {
 	max-height: 0;
 }

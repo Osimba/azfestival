@@ -21,3 +21,12 @@ include('includes/Group.class.php');
 //Create Objects
 $Leader = new Leader();
 $Group = new Group();
+
+//Content Values
+const CONNECTED_VALUE = 5;
+const UNCONNECTED_VALUE = 1;
+const COME_SEE_VALUE = 5;
+const BAPTISM_VALUE = 30;
+const BIBLE_STUDY_VALUE = 5;
+const ELOHIM_ACADEMY_VALUE = 5;
+const MOSES_STAFF_VALUE = 5;

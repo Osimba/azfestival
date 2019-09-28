@@ -8,11 +8,11 @@
 
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-		$leader = $_POST['leader-title'];
+		$leader = $_POST['leader-name'];
 		$password = $_POST['password'];
 
 
-		if($User->checkLeaderCredentials($leader, $password)) {
+		if($Leader->checkLeaderCredentials($leader, $password)) {
 
 			$_SESSION['leader'] = $leader;
 			$_SESSION['last_active'] = time();
@@ -49,7 +49,7 @@
 	}
 
 	
-	include("views/v_admin.php");
+	include("views/v_login-admin.php");
 
 	
 ?>
