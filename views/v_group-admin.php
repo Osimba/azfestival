@@ -1,18 +1,18 @@
 <?php include("views/headers/header.php") ?>
 
 <main id="admin-page" class="container text-center">
-	<h1>[Group Name] Admin Input</h1>
+	<h1><?php echo $Leader->getGroupTitle($leader); ?> Admin Input</h1>
 
 	<?php 
 		for($i = 1; $i <= 6; $i++) {
-			echo $Group->drawTable($i, $yumaWeek[$i]);
+			echo $Group->drawTable($i, $groupWeek[$i], $leader);
 	 ?>
 	<br><hr><br>
 
 <?php } ?>
 
 
-
+<button id="update-data" class="btn btn-primary btn-block">Update</button>
 </main>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"

@@ -31,7 +31,7 @@
 							<a class="nav-link" href="<?= ROOT_DIR ?>">All Group Stats</a>
 							<a class="nav-link" href="<? echo ROOT_DIR . 'index.php?logout=true'; ?>">Logout</a>
 						<?php else:?>
-							<a class="nav-item nav-link" href="<? echo ROOT_DIR . 'admin.php'; ?>">Admin</a>
+							<a class="nav-item nav-link" href="<? echo ROOT_DIR . 'login-admin.php'; ?>">Admin</a>
 						<?php endif; ?>
 
 					</div>

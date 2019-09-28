@@ -64,6 +64,12 @@ img.img-thumbnail {
 }
 
 /* Admin Page - Login */
+#admin-page {
+	padding-bottom: 50px;
+}
+	#admin-page h1 {
+		text-transform: capitalize;
+	}
 .login-form select {
 	margin-bottom: 16px;
 }
@@ -112,6 +118,11 @@ td, th {
 	}
 table .table-body {
 	max-height: 0;
+}
+#admin-page button {
+	font-size: 1.5em;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 
