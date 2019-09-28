@@ -31,11 +31,16 @@
 
 		<div class="row">
 
-			<?php foreach($leaderArray as $leaderInfo) { ?>
+			<?php 
+				foreach($leaderArray as $leaderInfo) {
+					$totalPoints = $Group->getTotalPoints($leaderInfo['name']);
+					$Leader->setGospelPoints($leaderInfo['name'], $totalPoints) 
+			?>
 
 				<div class="col-md-6">
 					<h2><?= $leaderInfo['title'] ?></h2>
 					<h2>Goal: <?= $leaderInfo['goal']?></h2>
+					<h2>Current: <?= $totalPoints ?></h2>
 
 					<div class="zion-stats" id="<?= $leaderInfo['name'] ?>-group-stats"></div>
 				</div>

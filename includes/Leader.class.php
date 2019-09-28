@@ -31,6 +31,23 @@ class Leader extends Dbh {
 	
 	}
 
+	public function setGospelPoints($leaderName, $gospelPoints) {
+
+		$conn = $this->connect();
+
+		try {
+			
+			$stmt = $conn->prepare("UPDATE leader SET gospel_points = :gospelPoints WHERE name = :leaderName");
+			$stmt->bindParam(':gospelPoints', $gospelPoints);
+			$stmt->bindParam(':leaderName', $leaderName);
+			
+			$stmt->execute();
+
+		} catch (Exception $e) {
+			return "Error: " . $e->getMessage();
+		}
+	}
+
 	public function getGroupTitle($name) {
 
 		$user = array();

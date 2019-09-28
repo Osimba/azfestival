@@ -20,7 +20,6 @@ class Group extends Dbh {
 				$dayData[$row['day']]['bible_study'] = $row['bible_study'];
 				$dayData[$row['day']]['elohim_academy'] = $row['elohim_academy'];
 				$dayData[$row['day']]['moses_staff'] = $row['moses_staff'];
-				$dayData[$row['day']]['daily_total'] = $row['daily_total'];
 				
 			}
 
@@ -54,7 +53,6 @@ class Group extends Dbh {
 				$dayData[$row['day']]['bible_study'] = $row['bible_study'];
 				$dayData[$row['day']]['elohim_academy'] = $row['elohim_academy'];
 				$dayData[$row['day']]['moses_staff'] = $row['moses_staff'];
-				$dayData[$row['day']]['daily_total'] = $row['daily_total'];
 				
 			}
 
@@ -234,6 +232,36 @@ class Group extends Dbh {
 			$stmt = $conn->prepare($sql);
 			$stmt->bindParam(':firstDayOfWeek', $firstDayOfWeek);
 			$stmt->bindParam(':lastDayOfWeek', $lastDayOfWeek);
+			$stmt->execute();
+
+			if($row = $stmt->fetch()) {
+
+				return $row['total'];
+				
+			}
+			
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	public function getTotalPoints($groupName) {
+
+		$conn = $this->connect();
+
+		$sql = "SELECT SUM(connected) as connected, 
+						SUM(unconnected) as unconnected, 
+						SUM(come_see) as come_see,
+						SUM(baptism) as baptism,
+						SUM(bible_study) as bible_study,
+						SUM(elohim_academy) as elohim_academy,
+						SUM(moses_staff) as moses_staff,
+						(SUM(connected) + SUM(unconnected) + SUM(come_see) + SUM(baptism) + SUM(bible_study) + SUM(elohim_academy) + SUM(moses_staff)) as total 
+				FROM " . $groupName;
+
+		try {
+
+			$stmt = $conn->prepare($sql);
 			$stmt->execute();
 
 			if($row = $stmt->fetch()) {
