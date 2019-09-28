@@ -39,6 +39,7 @@ main h1 {
 
 main h2 {
 	font-size: 48px;
+	text-transform: capitalize;
 }
 
 

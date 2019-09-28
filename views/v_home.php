@@ -1,4 +1,7 @@
-<?php include("views/headers/header.php") ?>
+<?php 
+	include("views/headers/header.php");
+	$leaderArray = $Leader->getAllLeadersInfo();
+?>
 
 <div class="banner">
 		<div class="overlay">
@@ -24,24 +27,19 @@
 
 	<main id="church-stats" class="container text-center">
 		<h1>Results</h1>
-		<p>Coming Soon - I'm sorry, please forgive me...</p>
+		<p>Still Under Construction - I'm sorry, please forgive me...</p>
 
 		<div class="row">
 
-			<div class="col-md-6">
-				<h2>D. Lani's Group</h2>
-				<p>Goal: 1,200</p>
+			<?php foreach($leaderArray as $leaderInfo) { ?>
 
-				<div class="zion-stats" id="lani-group-stats"></div>
+				<div class="col-md-6">
+					<h2><?= $leaderInfo['title'] ?></h2>
+					<h2>Goal: <?= $leaderInfo['goal']?></h2>
 
-			</div>
-
-			<div class="col-md-6">
-				<h2>D. Thomas' Group</h2>
-				<p>Goal: 2,000</p>
-
-				<div class="zion-stats" id="thomas-group-stats"></div>
-			</div>
+					<div class="zion-stats" id="<?= $leaderInfo['name'] ?>-group-stats"></div>
+				</div>
+			<?php } ?>
 
 		</div>
 

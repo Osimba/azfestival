@@ -2,6 +2,35 @@
 
 class Leader extends Dbh {
 
+	public function getAllLeadersInfo() {
+
+		$conn = $this->connect();
+		$leaderRow = array();
+
+		try {
+
+			$stmt = $conn->prepare("SELECT name, title, goal FROM leader");
+			$stmt->execute();
+
+			$i = 0;
+
+			while($row = $stmt->fetch()) {
+
+				$leaderRow[$i]['name'] = $row['name'];
+				$leaderRow[$i]['title'] = $row['title'];
+				$leaderRow[$i]['goal'] = $row['goal'];
+				
+				$i++;
+			}
+
+			return $leaderRow;
+			
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+	
+	}
+
 	public function getGroupTitle($name) {
 
 		$user = array();
