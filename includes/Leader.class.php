@@ -55,6 +55,27 @@ class Leader extends Dbh {
 
 	}
 
+	public function getPercentageToGoal($leaderName) {
+
+		$conn = $this->connect();
+
+		try {
+
+			$stmt = $conn->prepare("SELECT gospel_points * 100 / goal as percent FROM leader WHERE name = :leaderName");
+			$stmt->bindParam(':leaderName', $leaderName);
+			$stmt->execute();
+
+			if($row = $stmt->fetch()) {
+				$leaderRow['percent'] = $row['percent'];
+			}
+
+			return number_format($leaderRow['percent'], 1, '.', '');
+			
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+	}
+
 	public function setGospelPoints($leaderName, $gospelPoints) {
 
 		$conn = $this->connect();

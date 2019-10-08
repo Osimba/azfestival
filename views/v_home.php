@@ -259,7 +259,28 @@
 
 	<hr>
 
-	<main id="church-stats" class="container text-center">
+	<main id="church-stats" class="text-center">
+
+		<h1>Acheivements</h1>
+
+		<?php for($i = 0; $i < sizeof($sortedLeaderArray); $i++) { ?>
+
+		<a href="#"><h2 class="group-section-title"><?= $groupTypes[$i] ?></h2></a>
+
+		<div class="row group-percentage-data">
+
+			<?php foreach($sortedLeaderArray[$i] as $leaderName) { ?>
+
+				<div class="leader-percentage col-md-4"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+
+			<?php } ?>
+
+		</div>
+
+		<?php } ?>
+
+		<hr>
+
 		<h1>Results</h1>
 		<img src="<?php echo IMAGE_DIR . 'legend.JPG'; ?>">
 

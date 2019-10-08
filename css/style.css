@@ -42,6 +42,9 @@ main h2 {
 	text-transform: capitalize;
 }
 
+.group-percentage-data, .leader-percentage {
+	margin-bottom: 20px;
+}
 
 #church-stats .row {
 
@@ -133,7 +136,6 @@ table .table-body {
 @media only screen and (max-width: 480px) {
 	#church-stats .zion-stats {
 		width: 100vw;
-		max-width: 280px;
 		padding: 0 5px;
 		margin-top: 30px;
 		margin-bottom: 40px;
