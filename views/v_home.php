@@ -1,6 +1,6 @@
 <?php 
 	include("views/headers/header.php");
-	$leaderArray = $Leader->getAllLeadersInfo();
+	$percentages = array();
 ?>
 
 <script type="text/javascript">
@@ -14,20 +14,27 @@
 	google.charts.setOnLoadCallback(drawGroupChart4);
 
 	function drawGroupChart0() {
-		// Some raw data (not necessarily accurate)
-        var oldData = google.visualization.arrayToDataTable([
-	      ['Name', 'Goal'],
+		var oldData = new google.visualization.DataTable();
+
+		oldData.addColumn('string', 'Name');
+		oldData.addColumn('number', 'Goal');
+		
+
+        oldData.addRows([
 	      <?php 
 	      	foreach($sortedLeaderArray[0] as $groupArray) {
-				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['goal'] . "],"; 
-
+				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['goal'] . "],";
 	      	}
 	      ?>
 	      
 	    ]);
 
-	    var newData = google.visualization.arrayToDataTable([
-	      ['Name', 'Gospel Points'],
+	    var newData = new google.visualization.DataTable();
+		
+		newData.addColumn('string', 'Name');
+		newData.addColumn('number', 'Gospel Points');	
+
+        newData.addRows([
 	      <?php 
 	      	foreach($sortedLeaderArray[0] as $groupArray) {
 				echo "['" . ucfirst($groupArray) . "', " . $Leader->getLeaderInfo($groupArray)['gospel_points'] . "],"; 
@@ -36,11 +43,24 @@
 	      ?>
 	    ]);
 
+
 	    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('group-stats0'));
 
-	    var options = { legend: { position: 'none' } };
+	    var options = {
+	    	legend: { position: 'none' },
+	    	diff: { 
+	    		oldData: { 
+	    			tooltip: { prefix: 'Goal'} 
+	    		},
+	    		newData: { 
+	    			widthFactor: 1,
+	    			tooltip: { prefix: 'Points'}
+	    		} 
+	    	}  
+	    };
 
 	    var diffData = colChartDiff.computeDiff(oldData, newData);
+
 	    colChartDiff.draw(diffData, options);
 
 	}
@@ -69,9 +89,21 @@
 	      ?>
 	    ]);
 
+
 	    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('group-stats1'));
 
-	    var options = { legend: { position: 'none' } };
+	    var options = {
+	    	legend: { position: 'none' },
+	    	diff: { 
+	    		oldData: { 
+	    			tooltip: { prefix: 'Goal'} 
+	    		},
+	    		newData: { 
+	    			widthFactor: 1,
+	    			tooltip: { prefix: 'Points'}
+	    		} 
+	    	}  
+	    };
 
 	    var diffData = colChartDiff.computeDiff(oldData, newData);
 	    colChartDiff.draw(diffData, options);
@@ -104,7 +136,18 @@
 
 	    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('group-stats2'));
 
-	    var options = { legend: { position: 'none' } };
+	    var options = {
+	    	legend: { position: 'none' },
+	    	diff: { 
+	    		oldData: { 
+	    			tooltip: { prefix: 'Goal'} 
+	    		},
+	    		newData: { 
+	    			widthFactor: 1,
+	    			tooltip: { prefix: 'Points'}
+	    		} 
+	    	}  
+	    };
 
 	    var diffData = colChartDiff.computeDiff(oldData, newData);
 	    colChartDiff.draw(diffData, options);
@@ -137,7 +180,18 @@
 
 	    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('group-stats3'));
 
-	    var options = { legend: { position: 'none' } };
+	    var options = {
+	    	legend: { position: 'none' },
+	    	diff: { 
+	    		oldData: { 
+	    			tooltip: { prefix: 'Goal'} 
+	    		},
+	    		newData: { 
+	    			widthFactor: 1,
+	    			tooltip: { prefix: 'Points'}
+	    		} 
+	    	}  
+	    };
 
 	    var diffData = colChartDiff.computeDiff(oldData, newData);
 	    colChartDiff.draw(diffData, options);
@@ -169,7 +223,18 @@
 
 	    var colChartDiff = new google.visualization.ColumnChart(document.getElementById('group-stats4'));
 
-	    var options = { legend: { position: 'none' } };
+	    var options = {
+	    	legend: { position: 'none' },
+	    	diff: { 
+	    		oldData: { 
+	    			tooltip: { prefix: 'Goal'} 
+	    		},
+	    		newData: { 
+	    			widthFactor: 1,
+	    			tooltip: { prefix: 'Points'}
+	    		} 
+	    	}  
+	    };
 
 	    var diffData = colChartDiff.computeDiff(oldData, newData);
 	    colChartDiff.draw(diffData, options);

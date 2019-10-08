@@ -24,6 +24,8 @@
 		$groupWeek[5] = $Group->getWeekTable(1020, 1026, $_SESSION['leader']);
 		$groupWeek[6] = $Group->getWeekTable(1027, 1029, $_SESSION['leader']);
 
+		
+
 
 	} else {
 		//if not logged in redirect
