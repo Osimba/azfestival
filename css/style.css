@@ -45,12 +45,13 @@ main h2 {
 .group-section-title {
 	background-color: #007bff;
 	color: white;
+	padding: 10px 0;
+	margin: 20px 0;
 }
 .group-section-title:hover {
 	cursor: pointer;
 	background-color: #228dff;
 	color: #eee;
-
 }
 .group-percentage-data {
 	overflow: hidden;
@@ -62,7 +63,9 @@ main h2 {
 }
 
 
-#youth-female-data {
+#youth-female-data, #adult-female-data,
+#youth-male-data, #adult-male-data,
+#branch-church-data {
 	display: none;
 }
 

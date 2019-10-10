@@ -37,7 +37,7 @@ class Leader extends Dbh {
 
 		try {
 
-			$stmt = $conn->prepare("SELECT title, goal, gospel_points FROM leader WHERE name = :leaderName");
+			$stmt = $conn->prepare("SELECT title, goal, gospel_points, group_type FROM leader WHERE name = :leaderName");
 			$stmt->bindParam(':leaderName', $leaderName);
 			$stmt->execute();
 
@@ -45,6 +45,7 @@ class Leader extends Dbh {
 				$leaderRow['title'] = $row['title'];
 				$leaderRow['goal'] = $row['goal'];
 				$leaderRow['gospel_points'] = $row['gospel_points'];
+				$leaderRow['group_type'] = $row['group_type'];
 			}
 
 			return $leaderRow;
@@ -53,6 +54,37 @@ class Leader extends Dbh {
 			echo $e->getMessage();
 		}
 
+	}
+
+	public function getGroups($type) {
+
+		$conn = $this->connect();
+		$leaderRow = array();
+
+		try {
+
+			$stmt = $conn->prepare("SELECT name, title, goal, gospel_points FROM leader WHERE group_type = :type");
+			$stmt->bindParam($type, ":type");
+			$stmt->execute();
+
+			$i = 0;
+
+			while($row = $stmt->fetch()) {
+
+				$leaderRow[$i]['name'] = $row['name'];
+				$leaderRow[$i]['title'] = $row['title'];
+				$leaderRow[$i]['goal'] = $row['goal'];
+				$leaderRow[$i]['gospel_points'] = $row['gospel_points'];
+				
+				$i++;
+			}
+
+			return $leaderRow;
+			
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+	
 	}
 
 	public function getPercentageToGoal($leaderName) {

@@ -44,7 +44,19 @@ $(document).ready(function() {
 
 	$("#youth-female-title").click(function(){
 		$("#youth-female-data").slideToggle("slow")
-	})
+	});
+	$("#adult-female-title").click(function(){
+		$("#adult-female-data").slideToggle("slow")
+	});
+	$("#youth-male-title").click(function(){
+		$("#youth-male-data").slideToggle("slow")
+	});
+	$("#adult-male-title").click(function(){
+		$("#adult-male-data").slideToggle("slow")
+	});
+	$("#branch-church-title").click(function(){
+		$("#branch-church-data").slideToggle("slow")
+	});
 
 
 });

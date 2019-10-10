@@ -261,11 +261,12 @@
 
 	<main id="church-stats" class="text-center">
 
-		<h1>Acheivements</h1>
+		<h1>Results</h1>
 
+		<!-- Youth Female -->
 		<div id="youth-female-title"><h2 class="group-section-title">Youth Female</h2></div>
 
-		<div id="youth-female-data" class="group-percentage-data hide-data">
+		<div id="youth-female-data" class="group-percentage-data">
 
 			<?php foreach($sortedLeaderArray[0] as $leaderName) { ?>
 
@@ -275,10 +276,58 @@
 
 		</div>
 
-		<hr>
 
-		<h1>Results</h1>
-		<img src="<?php echo IMAGE_DIR . 'legend.JPG'; ?>">
+		<div id="youth-male-title"><h2 class="group-section-title">Youth Male</h2></div>
+
+		<div id="youth-male-data" class="group-percentage-data">
+
+			<?php foreach($sortedLeaderArray[1] as $leaderName) { ?>
+
+				<div class="leader-percentage"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+
+			<?php } ?>
+
+		</div>
+
+
+		<div id="adult-female-title"><h2 class="group-section-title">Adult Female</h2></div>
+
+		<div id="adult-female-data" class="group-percentage-data">
+
+			<?php foreach($sortedLeaderArray[2] as $leaderName) { ?>
+
+				<div class="leader-percentage"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+
+			<?php } ?>
+
+		</div>
+
+
+		<div id="adult-male-title"><h2 class="group-section-title">Adult Male</h2></div>
+
+		<div id="adult-male-data" class="group-percentage-data">
+
+			<?php foreach($sortedLeaderArray[3] as $leaderName) { ?>
+
+				<div class="leader-percentage"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+
+			<?php } ?>
+
+		</div>
+
+		<div id="branch-church-title"><h2 class="group-section-title">Branch Church</h2></div>
+
+		<div id="branch-church-data" class="group-percentage-data">
+
+			<?php foreach($sortedLeaderArray[4] as $leaderName) { ?>
+
+				<div class="leader-percentage"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+
+			<?php } ?>
+
+		</div>
+
+		<hr>
 
 		<div class="row">
 
