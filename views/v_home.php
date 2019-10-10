@@ -263,21 +263,17 @@
 
 		<h1>Acheivements</h1>
 
-		<?php for($i = 0; $i < sizeof($sortedLeaderArray); $i++) { ?>
+		<div id="youth-female-title"><h2 class="group-section-title">Youth Female</h2></div>
 
-		<a href="#"><h2 class="group-section-title"><?= $groupTypes[$i] ?></h2></a>
+		<div id="youth-female-data" class="group-percentage-data hide-data">
 
-		<div class="row group-percentage-data">
+			<?php foreach($sortedLeaderArray[0] as $leaderName) { ?>
 
-			<?php foreach($sortedLeaderArray[$i] as $leaderName) { ?>
-
-				<div class="leader-percentage col-md-4"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+				<div class="leader-percentage"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
 
 			<?php } ?>
 
 		</div>
-
-		<?php } ?>
 
 		<hr>
 

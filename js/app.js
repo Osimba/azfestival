@@ -40,8 +40,11 @@ $(document).ready(function() {
 
 		
 	}); //#update-data
-
-
 	
+
+	$("#youth-female-title").click(function(){
+		$("#youth-female-data").slideToggle("slow")
+	})
+
 
 });

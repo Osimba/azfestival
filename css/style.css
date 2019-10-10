@@ -42,8 +42,28 @@ main h2 {
 	text-transform: capitalize;
 }
 
-.group-percentage-data, .leader-percentage {
+.group-section-title {
+	background-color: #007bff;
+	color: white;
+}
+.group-section-title:hover {
+	cursor: pointer;
+	background-color: #228dff;
+	color: #eee;
+
+}
+.group-percentage-data {
+	overflow: hidden;
+}
+.leader-percentage {
 	margin-bottom: 20px;
+	padding: 15px 30px;
+	display: inline-block;
+}
+
+
+#youth-female-data {
+	display: none;
 }
 
 #church-stats .row {
@@ -51,6 +71,8 @@ main h2 {
 	text-align: center;
 	margin-top: 60px;
 	margin-bottom: 40px;
+
+
 
 }
 #church-stats .zion-stats {
