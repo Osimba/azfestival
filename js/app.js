@@ -20,6 +20,8 @@ $(document).ready(function() {
 	});
 
 	$("#update-data").click(function() {
+		$(this).prop("disabled", true);
+		$("#loader").show();
 
 		if(listOfChanges.length < 1) {
 			alert("No changes made.")
@@ -32,6 +34,8 @@ $(document).ready(function() {
 						'changes': listOfChanges
 				},
 				success: function(response) {
+					$("#loader").hide();
+					$(this).prop("disabled", false);
 					alert(response);
 					window.location = "./admin.php"
 				}
@@ -42,6 +46,8 @@ $(document).ready(function() {
 	}); //#update-data
 
 	$("#update-attendance-data").click(function() {
+		$(this).prop("disabled", true);
+		$("#loader").show();
 
 		if(listOfChanges.length < 1) {
 			alert("No changes made.")
@@ -54,6 +60,8 @@ $(document).ready(function() {
 						'attendance': listOfChanges
 				},
 				success: function(response) {
+					$("#loader").hide();
+					$(this).prop("disabled", false);
 					alert(response);
 					window.location = "./usa-admin.php"
 				}

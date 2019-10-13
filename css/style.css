@@ -1,3 +1,8 @@
+
+.navbar-dark .navbar-nav .nav-link {
+	color: white;
+}
+
 /* Home Page */
 div.overlay {
 	background-color: rgba(0, 0, 0, 0.4);

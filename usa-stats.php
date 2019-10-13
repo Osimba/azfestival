@@ -10,19 +10,20 @@
 
 	$i = 0;
 
+	//Get data for Total
 	foreach ($sortedLeaderArray as $leader) {
 		$festivalData[$i] = $Group->getWeekTable(1013, 1026, $leader);
 		$attendanceData[$i] =  $Leader->getLeaderAttendance($leader);
 		$i++;
 	}
 
-	print_r($festivalData[0]);
 
 	$uTotal = 0;
 	$cTotal = 0;
 	$bTotal = 0;
 	$aTotal = 0;
 
+	//Add all data for totals in unconnected, connected, baptisms and attendance
 	for ($j = 0; $j < sizeof($sortedLeaderArray); $j++) { 
 		
 		foreach($festivalData[$j] as $value) {

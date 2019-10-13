@@ -12,9 +12,9 @@
 <?php } ?>
 
 <div class="text-center">
-	<img src="images/loader.gif" id="loader" width="200px" style="display: none;">
+	<img src="<?= IMAGE_DIR ?>loader.gif" id="loader" width="100px" style="display: none;">
 </div>
-
+<br>
 <button id="update-data" class="btn btn-primary btn-block">Update</button>
 </main>
 
