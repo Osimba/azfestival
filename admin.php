@@ -33,5 +33,3 @@
 	}
 
 	include("views/v_admin.php");
-
-?>

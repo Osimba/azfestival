@@ -28,11 +28,15 @@
 				</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				    <div class="navbar-nav ml-auto">
+				    	<a class="nav-item nav-link" href="<? echo ROOT_DIR . 'usa-stats.php'; ?>">Wipe Mother's Tears Festival Stats</a>
+							<a class="nav-item nav-link" href="<? echo ROOT_DIR . 'index.php'; ?>">I'm Sorry Festival Stats</a>
 
 						<?php if(isset($_SESSION["leader"])): ?>
-							<a class="nav-link" href="<?= ROOT_DIR ?>">All Group Stats</a>
+							<a class="nav-link" href="<? echo ROOT_DIR . 'usa-admin.php'; ?>">Attendance Admin</a>
+							<a class="nav-link" href="<? echo ROOT_DIR . 'admin.php'; ?>">Main Admin</a>
 							<a class="nav-link" href="<? echo ROOT_DIR . 'login-admin.php?logout=true'; ?>">Logout</a>
 						<?php else:?>
+							
 							<a class="nav-item nav-link" href="<? echo ROOT_DIR . 'login-admin.php'; ?>">Admin</a>
 						<?php endif; ?>
 

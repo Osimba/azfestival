@@ -40,6 +40,28 @@ $(document).ready(function() {
 
 		
 	}); //#update-data
+
+	$("#update-attendance-data").click(function() {
+
+		if(listOfChanges.length < 1) {
+			alert("No changes made.")
+		} else {
+
+			$.ajax({
+				method: "POST",
+				url: "update-group-data.php",
+				data: {//groupName-attendance-date-value
+						'attendance': listOfChanges
+				},
+				success: function(response) {
+					alert(response);
+					window.location = "./usa-admin.php"
+				}
+			});
+		}
+
+		
+	}); //#update-data
 	
 
 	$("#youth-female-title").click(function(){

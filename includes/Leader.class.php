@@ -56,6 +56,76 @@ class Leader extends Dbh {
 
 	}
 
+	public function getLeaderAttendance($leaderName) {
+
+		$conn = $this->connect();
+
+		try {
+
+			$stmt = $conn->prepare("SELECT * FROM attendance WHERE name = :leaderName");
+			$stmt->bindParam(':leaderName', $leaderName);
+			$stmt->execute();
+
+			if($row = $stmt->fetch()) {
+				$leaderRow['1015T'] = $row['1015T'];
+				$leaderRow['1019M'] = $row['1019M'];
+				$leaderRow['1019A'] = $row['1019A'];
+				$leaderRow['1019E'] = $row['1019E'];
+				$leaderRow['1022T'] = $row['1022T'];
+				$leaderRow['1026M'] = $row['1026M'];
+				$leaderRow['1026A'] = $row['1026A'];
+				$leaderRow['1026E'] = $row['1026E'];
+				$leaderRow['total'] = $row['total'];
+			}
+
+			return $leaderRow;
+			
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	public function updateAttendanceData($leaderName, $date, $value) {
+
+		$conn = $this->connect();
+
+		$sql = "UPDATE attendance SET " . $date . "=? WHERE name=?"; 
+
+		try {
+
+			$stmt = $conn->prepare($sql);
+			$stmt->execute([$value, $leaderName]);
+
+			$this->updateTotalPoints($leaderName);
+
+			return "Updated successfully";
+
+		
+		} catch (Exception $e) {
+			echo $e->getMessage();
+
+			return "There seems to be an error. Please try again!";
+		}	
+
+	}
+
+	private function updateTotalPoints($leaderName) {
+
+		$conn = $this->connect();
+
+		try {
+
+			$stmt = $conn->prepare("UPDATE attendance SET total = 1015T + 1019M + 1019A + 1019E + 1022T + 1026M + 1026A + 1026E WHERE name=:leaderName");
+			$stmt->bindParam(":leaderName", $leaderName);
+			$stmt->execute();
+			
+		} catch (Exception $e) {
+			echo $e->getMessage();
+		}
+	}
+
+
+
 	public function getGroups($type) {
 
 		$conn = $this->connect();
@@ -64,7 +134,7 @@ class Leader extends Dbh {
 		try {
 
 			$stmt = $conn->prepare("SELECT name, title, goal, gospel_points FROM leader WHERE group_type = :type");
-			$stmt->bindParam($type, ":type");
+			$stmt->bindParam(":type", $type);
 			$stmt->execute();
 
 			$i = 0;

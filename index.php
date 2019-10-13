@@ -11,7 +11,7 @@
 	$groupTypes = array('Youth Female', 'Youth Male', 'Adult Female', 'Adult Male', 'Branch Churches');
 	
 	include("./views/v_home.php");
-?>
+
 
 
 	

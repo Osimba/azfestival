@@ -6,15 +6,21 @@ div.overlay {
 	top: 0;
 	width: 100%;
 }
-
 div.banner {
 	background-image: url("../images/galaxy-background-image-main.jpg");
 	background-size: cover;
-	background-repeat: none;
+}
+.banner-wmt {
+	display: block;
+	width: 100%;
+	max-width: 1024px;
+	max-height: 80%;
+	margin: 0 auto 20px;
+}
+div.banner {
+	background-repeat: no-repeat;
 	color: white;
 	text-align: center;
-
-	
 }
 	.banner h1 {
 		
@@ -22,7 +28,7 @@ div.banner {
 		margin-bottom: 20px;
 		padding-top: 86px;
 	}
-	.banner h2 {
+	.banner h2, .banner-wmt h2 {
 		font-size: 3em;
 		padding-bottom: 60px;
 	}

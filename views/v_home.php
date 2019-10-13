@@ -1,7 +1,4 @@
-<?php 
-	include("views/headers/header.php");
-	$percentages = array();
-?>
+<?php include("views/headers/header.php"); ?>
 
 <script type="text/javascript">
 	
