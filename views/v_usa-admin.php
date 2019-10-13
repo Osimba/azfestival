@@ -3,9 +3,11 @@
 <main id="admin-page" class="container-fluid text-center">
 	<h1><?php echo $Leader->getGroupTitle($_SESSION['leader']); ?> Admin Attendance Input</h1>
 
+	<p><a href="<? echo ROOT_DIR . 'admin.php'; ?>">Go to Weekly Admin Input</a></p>
+
 <table>
-	<thead>
-		<tr>
+	<thead class='table-header'>
+		<tr class="btn-primary">
 		<?php foreach ($attendanceDates as $date) {
 			echo "<th class='date'>" . substr_replace($date, '/', -3, 0) . "</th>";
 			echo "";
