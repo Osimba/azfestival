@@ -96,7 +96,7 @@ class Leader extends Dbh {
 			$stmt = $conn->prepare($sql);
 			$stmt->execute([$value, $leaderName]);
 
-			$this->updateTotalPoints($leaderName);
+			$this->updateTotalAttendance($leaderName);
 
 			return "Updated successfully";
 
@@ -109,7 +109,7 @@ class Leader extends Dbh {
 
 	}
 
-	private function updateTotalPoints($leaderName) {
+	private function updateTotalAttendance($leaderName) {
 
 		$conn = $this->connect();
 

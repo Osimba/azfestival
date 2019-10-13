@@ -22,34 +22,37 @@
 		<header>
 
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="<?= ROOT_DIR ?>">AZ Festival Dashboard</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-				</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				    <div class="navbar-nav ml-auto">
+				<div class="container">
+					<a class="navbar-brand" href="<?= ROOT_DIR ?>">AZ Festival Dashboard</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
 
-				    	<div class="dropdown nav-item">
-				    		<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownStats" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stats</a>
+					<div class="collapse navbar-collapse" id="navbarNav">
+						    <div class="navbar-nav ml-auto">
 
-							<div class="dropdown-menu" aria-labelledby="dropdownStats">
-								<a class="dropdown-item" href="<? echo ROOT_DIR . 'usa-stats.php'; ?>">Wipe Mother's Tears Festival</a>
-								<a class="dropdown-item" href="<? echo ROOT_DIR . 'index.php'; ?>">I'm Sorry Festival</a>	
+						    	<div class="dropdown nav-item">
+						    		<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownStats" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stats</a>
+
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownStats">
+										<a class="dropdown-item" href="<? echo ROOT_DIR . 'usa-stats.php'; ?>">Wipe Mother's Tears Festival</a>
+										<a class="dropdown-item" href="<? echo ROOT_DIR . 'index.php'; ?>">I'm Sorry Festival</a>	
+									</div>
+								</div>
+
+								<?php if(isset($_SESSION["leader"])): ?>
+									
+									<a class="nav-link" href="<? echo ROOT_DIR . 'usa-admin.php'; ?>">Attendance Admin</a>
+									<a class="nav-link" href="<? echo ROOT_DIR . 'admin.php'; ?>">Main Admin</a>
+									<a class="nav-link" href="<? echo ROOT_DIR . 'login-admin.php?logout=true'; ?>">Logout</a>
+								<?php else:?>
+									
+									<a class="nav-item nav-link" href="<? echo ROOT_DIR . 'login-admin.php'; ?>">Admin</a>
+								<?php endif; ?>
+
 							</div>
-						</div>
-
-						<?php if(isset($_SESSION["leader"])): ?>
-							
-							<a class="nav-link" href="<? echo ROOT_DIR . 'usa-admin.php'; ?>">Attendance Admin</a>
-							<a class="nav-link" href="<? echo ROOT_DIR . 'admin.php'; ?>">Main Admin</a>
-							<a class="nav-link" href="<? echo ROOT_DIR . 'login-admin.php?logout=true'; ?>">Logout</a>
-						<?php else:?>
-							
-							<a class="nav-item nav-link" href="<? echo ROOT_DIR . 'login-admin.php'; ?>">Admin</a>
-						<?php endif; ?>
-
-					</div>
-				
-			</div><!-- #navbarNav -->
+						
+					</div><!-- #navbarNav -->
+				</div>
 			</nav> 
 		</header>

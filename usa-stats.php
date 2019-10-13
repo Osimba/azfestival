@@ -14,6 +14,7 @@
 	foreach ($sortedLeaderArray as $leader) {
 		$festivalData[$i] = $Group->getWeekTable(1013, 1026, $leader);
 		$attendanceData[$i] =  $Leader->getLeaderAttendance($leader);
+		unset($attendanceData[$i]['total']);
 		$i++;
 	}
 
