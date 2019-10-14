@@ -145,7 +145,8 @@ td, th {
 		text-align: center;
 	}
 
-.update-nav button {
+#admin-page button, 
+#attendance-page button {
 	font-size: 1.5em;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -157,7 +158,6 @@ td, th {
 	width: 100%;
 	padding: 0px 15px 15px;
 	background-color: white;
-	z-index: 100;
 }
 
 

@@ -28,7 +28,7 @@
 
 <br><hr><br>
 
-<div class="text-center update-nav">
+<div class="text-center">
 	<img src="<?= IMAGE_DIR ?>loader.gif" id="loader" width="100px" style="display: none;">
 	<br>
 	<button id="update-attendance-data" class="btn btn-primary btn-block">Update</button>
