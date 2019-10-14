@@ -69,9 +69,9 @@ class Group extends Dbh {
 		$totalGP = array();
 
 		$output .= "<table id=week'" . $weekNumber . "'>
-						<thead class='table-headers'>
+						<thead>
 							<tr class='btn-primary'>
-								<th class=''>Week " . $weekNumber . "</th>";
+								<th>Week " . $weekNumber . "</th>";
 
 
 		foreach ($weekData as $date => $content) {
@@ -84,7 +84,7 @@ class Group extends Dbh {
 					</tr>
 					</thead>";
 
-		$output .= "<tbody class='table-bodys'>";
+		$output .= "<tbody>";
 		
 		//Connected
 		$output .= "<tr>
