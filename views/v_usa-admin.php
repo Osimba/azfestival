@@ -28,11 +28,12 @@
 
 <br><hr><br>
 
-<div class="text-center">
+<div class="text-center update-nav">
 	<img src="<?= IMAGE_DIR ?>loader.gif" id="loader" width="100px" style="display: none;">
+	<br>
+	<button id="update-attendance-data" class="btn btn-primary btn-block">Update</button>
 </div>
-<br>
-<button id="update-attendance-data" class="btn btn-primary btn-block">Update</button>
+
 </main>
 
 

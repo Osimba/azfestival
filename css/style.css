@@ -145,11 +145,21 @@ td, th {
 		text-align: center;
 	}
 
-#admin-page button, #attendance-page button {
+.update-nav button {
 	font-size: 1.5em;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+
+.update-nav {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 0px 15px 15px;
+	background-color: white;
+	z-index: 100;
+}
+
 
 
 @media 
