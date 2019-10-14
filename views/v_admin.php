@@ -1,6 +1,6 @@
 <?php include("views/headers/header.php") ?>
 
-<main id="admin-page" class="container-fluid text-center">
+<main id="admin-page" class="text-center">
 	<h1><?php echo $Leader->getGroupTitle($_SESSION['leader']); ?> Admin Input</h1>
 
 	<p><a href="<? echo ROOT_DIR . 'usa-admin.php'; ?>">Go to Attendance Admin Input</a></p>

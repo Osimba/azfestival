@@ -104,23 +104,21 @@ img.img-thumbnail {
 }
 
 /* Admin Page - Login */
-#admin-page {
+#admin-page, #attendance-page {
 	padding-bottom: 50px;
 }
-	#admin-page h1 {
+	#admin-page h1, #attendance-page h1 {
 		text-transform: capitalize;
 	}
+
 .login-form select {
 	margin-bottom: 16px;
 }
-table {
-	
-}
+
 table {
 	margin: 0 auto;
 	width: 100%;
 	border: 1px solid black;
-	overflow: hidden;
 	border-collapse: collapse;
 	font-size: 1.6em;
 }
@@ -130,17 +128,6 @@ table {
 	th {
 		padding: 5px 10px;
 	}
-	/*
-	th:first-child { 
-		-webkit-border-radius:25px 0 0 0; 
-		border-left:none;
-		border-top: none;
-	}
-	th:last-child { 
-		-webkit-border-radius: 0 25px 0 0;
-		border-right: none; 
-		border-top: none;
-	}*/
 	table .contents {
 		width: 200px;
 		min-width: 200px;
@@ -158,16 +145,79 @@ td, th {
 		text-align: center;
 	}
 
-table .table-body {
-	max-height: 0;
-}
-#admin-page button {
+#admin-page button, #attendance-page button {
 	font-size: 1.5em;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
 
 
+@media 
+only screen and (max-width: 1050px) {
+
+	#admin-page h1, #attendance-page h1 {
+		font-size: 2em;
+	}
+
+	#attendance-page table {
+		width: max-content;
+	}
+
+	table {
+		font-size: 1.0em;
+		display: block;
+		position: relative;
+	}
+	thead {
+		display: block;
+		float: left;
+	}
+	thead::after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;
+	}
+	thead tr, thead th {
+		display: block;
+		width: auto;
+	}
+	table .contents {
+		width: auto;
+		min-width: auto;
+		max-width: 130px;
+	}
+
+	tbody {
+		display: block;
+		width: auto;
+		position: relative;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+		tbody tr {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+	td, .date {
+		display: block;
+		height: 24px;
+		padding-top: 5px;
+		padding-bottom: 5px; 
+		box-sizing: content-box;
+		
+	}
+	td {
+		width: auto;
+		max-width: 130px;
+	}
+		td input[type=number] {
+			width: 75px;
+		}
+}
 
 @media only screen and (max-width: 480px) {
 	#church-stats .zion-stats {
