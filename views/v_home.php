@@ -259,66 +259,67 @@
 	<main id="church-stats" class="text-center">
 
 		<h1>Results</h1>
+		<p>(click/tap to view percentages)</p>
 
 		<!-- Youth Female -->
-		<div id="youth-female-title"><h2 class="group-section-title">Youth Female</h2></div>
+		<div id="youth-female-title"><h3 class="group-section-title">Youth Female</h3></div>
 
 		<div id="youth-female-data" class="group-percentage-data">
 
 			<?php foreach($sortedLeaderArray[0] as $leaderName) { ?>
 
-				<div class="leader-percentage"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+				<div class="leader-percentage"><h4><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h4></div>
 
 			<?php } ?>
 
 		</div>
 
 
-		<div id="youth-male-title"><h2 class="group-section-title">Youth Male</h2></div>
+		<div id="youth-male-title"><h3 class="group-section-title">Youth Male</h3></div>
 
 		<div id="youth-male-data" class="group-percentage-data">
 
 			<?php foreach($sortedLeaderArray[1] as $leaderName) { ?>
 
-				<div class="leader-percentage"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+				<div class="leader-percentage"><h4><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h4></div>
 
 			<?php } ?>
 
 		</div>
 
 
-		<div id="adult-female-title"><h2 class="group-section-title">Adult Female</h2></div>
+		<div id="adult-female-title"><h3 class="group-section-title">Adult Female</h3></div>
 
 		<div id="adult-female-data" class="group-percentage-data">
 
 			<?php foreach($sortedLeaderArray[2] as $leaderName) { ?>
 
-				<div class="leader-percentage"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+				<div class="leader-percentage"><h4><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h4></div>
 
 			<?php } ?>
 
 		</div>
 
 
-		<div id="adult-male-title"><h2 class="group-section-title">Adult Male</h2></div>
+		<div id="adult-male-title"><h3 class="group-section-title">Adult Male</h3></div>
 
 		<div id="adult-male-data" class="group-percentage-data">
 
 			<?php foreach($sortedLeaderArray[3] as $leaderName) { ?>
 
-				<div class="leader-percentage"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+				<div class="leader-percentage"><h4><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h4></div>
 
 			<?php } ?>
 
 		</div>
 
-		<div id="branch-church-title"><h2 class="group-section-title">Branch Church</h2></div>
+		<div id="branch-church-title"><h3 class="group-section-title">Branch Church</h3></div>
 
 		<div id="branch-church-data" class="group-percentage-data">
 
 			<?php foreach($sortedLeaderArray[4] as $leaderName) { ?>
 
-				<div class="leader-percentage"><h3><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h3></div>
+				<div class="leader-percentage"><h4><?php echo ucfirst($leaderName) . ": " . $Leader->getPercentageToGoal($leaderName) . "%"; ?></h4></div>
 
 			<?php } ?>
 

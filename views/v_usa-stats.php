@@ -26,7 +26,7 @@
 				role: 'annotation' }, 2]);
 
 		function calcPercentage(dataTable, rowNum) {
-			return dataTable.getValue(rowNum, 1) + ' - ' + (100 * dataTable.getValue(rowNum, 1)/dataTable.getValue(rowNum, 3)).toFixed(1) + '%';
+			return (100 * dataTable.getValue(rowNum, 1)/dataTable.getValue(rowNum, 3)).toFixed(1) + '%';
 		}
 
 		var options = {
@@ -61,7 +61,7 @@
 				role: 'annotation' }, 2]);
 
 		function calcPercentage(dataTable, rowNum) {
-			return dataTable.getValue(rowNum, 1) + ' - ' + (100 * dataTable.getValue(rowNum, 1)/dataTable.getValue(rowNum, 3)).toFixed(1) + '%';
+			return (100 * dataTable.getValue(rowNum, 1)/dataTable.getValue(rowNum, 3)).toFixed(1) + '%';
 		}
 
 		var options = {
@@ -96,7 +96,7 @@
 				role: 'annotation' }, 2]);
 
 		function calcPercentage(dataTable, rowNum) {
-			return dataTable.getValue(rowNum, 1) + ' - ' + (100 * dataTable.getValue(rowNum, 1)/dataTable.getValue(rowNum, 3)).toFixed(1) + '%';
+			return (100 * dataTable.getValue(rowNum, 1)/dataTable.getValue(rowNum, 3)).toFixed(1) + '%';
 		}
 
 		var options = {
