@@ -126,17 +126,21 @@
 	<main id="church-stats" class="text-center">
 
 		<h1>Results</h1>
-		<p>Last Updated <?= $lastUpdate ?></p>
-		<hr><br>
+		
+		<br><hr><br>
+
 		<h2>North America</h2>
+		<p>(Last Updated <?= $lastUpdate ?>)</p>
 
 		<div id="na-total-stats" class="zion-stats"></div>
 
 		<h2>West Coast Association</h2>
+		<p>(Last Updated <?= $lastUpdate ?>)</p>
 
 		<div id="wca-total-stats" class="zion-stats"></div>
 
 		<h2>Arizona</h2>
+		<p>(Real Time)</p>
 
 		<div id="az-total-stats" class="zion-stats"></div>
 
