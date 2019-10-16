@@ -17,7 +17,7 @@
 <div class="text-center update-nav">
 	<img src="<?= IMAGE_DIR ?>loader.gif" id="loader" width="100px" style="display: none;">
 	<br>
-	<button id="update-data" class="btn btn-primary btn-block">Update</button>
+	<button id="update-data" class="btn btn-warning btn-block">Update</button>
 </div>
 
 </main>

@@ -18,28 +18,54 @@
 		$i++;
 	}
 
+	$arizonaGoal['unconnected'] = 21000;
+	$arizonaGoal['connected'] = 500;
+	$arizonaGoal['baptism'] = 28;
+	$arizonaGoal['attendance'] = 15;
 
-	$uTotal = 0;
-	$cTotal = 0;
-	$bTotal = 0;
-	$aTotal = 0;
+	$arizonaData['unconnected'] = 0;
+	$arizonaData['connected'] = 0;
+	$arizonaData['baptism'] = 0;
+	$arizonaData['attendance'] = 0;
 
 	//Add all data for totals in unconnected, connected, baptisms and attendance
 	for ($j = 0; $j < sizeof($sortedLeaderArray); $j++) { 
 		
 		foreach($festivalData[$j] as $value) {
-			$uTotal += $value['unconnected'];
-			$cTotal += $value['connected'];
-			$bTotal += $value['baptism'];
+			$arizonaData['unconnected'] += $value['unconnected'];
+			$arizonaData['connected'] += $value['connected'];
+			$arizonaData['baptism'] += $value['baptism'];
 		}
 
 		foreach ($attendanceData[$j] as $value) {
-			$aTotal += $value;
+			$arizonaData['attendance'] += $value;
 		}
 	}
 
-	
+	/* NA Data */
+	$northAmericaGoal['unconnected'] = 2000000;
+	$northAmericaGoal['connected'] = 82618;
+	$northAmericaGoal['baptism'] = 2762;
+	$northAmericaGoal['attendance'] = 1356;
 
-	
+	$northAmericaData['unconnected'] = 445985;
+	$northAmericaData['connected'] = 59333;
+	$northAmericaData['baptism'] = 243;
+	$northAmericaData['attendance'] = 42;
+
+	/* WCA Data */
+
+	$westCoatAssociationGoal['unconnected'] = 700000;
+	$westCoatAssociationGoal['connected'] = 7000;
+	$westCoatAssociationGoal['baptism'] = 500;
+	$westCoatAssociationGoal['attendance'] = 200;
+
+	$westCoatAssociationData['unconnected'] = 144049;
+	$westCoatAssociationData['connected'] = 11493;
+	$westCoatAssociationData['baptism'] = 79;
+	$westCoatAssociationData['attendance'] = 3;
+
+	$lastUpdate = '5:30am ' . Date('M d, Y');
+
 	
 	include("./views/v_usa-stats.php");

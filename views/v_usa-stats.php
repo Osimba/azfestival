@@ -4,25 +4,100 @@
 	
 	/* Charts Code */
 	google.charts.load('current', {'packages':['corechart']});
-	google.charts.setOnLoadCallback(drawTotalChart);
+	google.charts.setOnLoadCallback(drawNorthAmericaChart);
+	google.charts.setOnLoadCallback(drawWestCoastChart);
+	google.charts.setOnLoadCallback(drawArizonaChart);
 
-	function drawTotalChart() {
+	function drawNorthAmericaChart() {
 		var totalData = google.visualization.arrayToDataTable([
-		  ['', 'Total', { role: 'style'}],
+		  ['', 'Total', { role: 'style'}, 'Goal'],
 		  <?php 
-		  echo "['Unconnected', " . $uTotal . ", 'blue'],";
-		  echo "['Connected', " . $cTotal . ", 'red'],";
-		  echo "['Baptisms', " . $bTotal . ", '#F2F200'],";
-		  echo "['Attendance', " . $aTotal . ", 'green'],";	
+		  echo "['Unconnected', " . $northAmericaData['unconnected'] . ", 'blue', " . $northAmericaGoal['unconnected'] . "],";
+		  echo "['Connected', " . $northAmericaData['connected'] . ", 'red', " . $northAmericaGoal['connected'] . "],";
+		  echo "['Baptisms', " . $northAmericaData['baptism'] . ", '#F2F200', " . $northAmericaGoal['baptism'] . "],";
+		  echo "['Attendance', " . $northAmericaData['attendance'] . ", 'green', " . $northAmericaGoal['attendance'] . "],";	
 		  ?>
 		]);
 
 		var view = new google.visualization.DataView(totalData);
 		view.setColumns([0, 1, 
-			{ calc: 'stringify',
-				sourceColumn: 1,
+			{ calc: calcPercentage,
 				type: 'string',
 				role: 'annotation' }, 2]);
+
+		function calcPercentage(dataTable, rowNum) {
+			return dataTable.getValue(rowNum, 1) + ' - ' + (100 * dataTable.getValue(rowNum, 1)/dataTable.getValue(rowNum, 3)).toFixed(1) + '%';
+		}
+
+		var options = {
+			legend: {position: "none" },
+			bar: {groupWidth: '95%'},
+			chart: {  	
+			    title: '',
+			    subtitle: '',
+			}
+		};
+
+
+		var chart = new google.visualization.ColumnChart(document.getElementById('na-total-stats'));
+		chart.draw(view, options);
+	}
+
+	function drawWestCoastChart() {
+		var totalData = google.visualization.arrayToDataTable([
+		  ['', 'Total', { role: 'style'}, 'Goal'],
+		  <?php 
+		  echo "['Unconnected', " . $westCoatAssociationData['unconnected'] . ", 'blue', " . $westCoatAssociationGoal['unconnected'] . "],";
+		  echo "['Connected', " . $westCoatAssociationData['connected'] . ", 'red', " . $westCoatAssociationGoal['connected'] . "],";
+		  echo "['Baptisms', " . $westCoatAssociationData['baptism'] . ", '#F2F200', " . $westCoatAssociationGoal['baptism'] . "],";
+		  echo "['Attendance', " . $westCoatAssociationData['attendance'] . ", 'green', " . $westCoatAssociationGoal['attendance'] . "],";	
+		  ?>
+		]);
+
+		var view = new google.visualization.DataView(totalData);
+		view.setColumns([0, 1, 
+			{ calc: calcPercentage,
+				type: 'string',
+				role: 'annotation' }, 2]);
+
+		function calcPercentage(dataTable, rowNum) {
+			return dataTable.getValue(rowNum, 1) + ' - ' + (100 * dataTable.getValue(rowNum, 1)/dataTable.getValue(rowNum, 3)).toFixed(1) + '%';
+		}
+
+		var options = {
+			legend: {position: "none" },
+			bar: {groupWidth: '95%'},
+			chart: {  	
+			    title: '',
+			    subtitle: '',
+			}
+		};
+
+
+		var chart = new google.visualization.ColumnChart(document.getElementById('wca-total-stats'));
+		chart.draw(view, options);
+	}
+
+	function drawArizonaChart() {
+		var totalData = google.visualization.arrayToDataTable([
+		  ['', 'Total', { role: 'style'}, 'Goal'],
+		  <?php 
+		  echo "['Unconnected', " . $arizonaData['unconnected'] . ", 'blue', " . $arizonaGoal['unconnected'] . "],";
+		  echo "['Connected', " . $arizonaData['connected'] . ", 'red', " . $arizonaGoal['connected'] . "],";
+		  echo "['Baptisms', " . $arizonaData['baptism'] . ", '#F2F200', " . $arizonaGoal['baptism'] . "],";
+		  echo "['Attendance', " . $arizonaData['attendance'] . ", 'green', " . $arizonaGoal['attendance'] . "],";	
+		  ?>
+		]);
+
+		var view = new google.visualization.DataView(totalData);
+		view.setColumns([0, 1, 
+			{ calc: calcPercentage,
+				type: 'string',
+				role: 'annotation' }, 2]);
+
+		function calcPercentage(dataTable, rowNum) {
+			return dataTable.getValue(rowNum, 1) + ' - ' + (100 * dataTable.getValue(rowNum, 1)/dataTable.getValue(rowNum, 3)).toFixed(1) + '%';
+		}
 
 		var options = {
 			legend: {position: "none" },
@@ -51,24 +126,21 @@
 	<main id="church-stats" class="text-center">
 
 		<h1>Results</h1>
-		<hr>
-		<h2>Total</h2>
+		<p>Last Updated <?= $lastUpdate ?></p>
+		<hr><br>
+		<h2>North America</h2>
+
+		<div id="na-total-stats" class="zion-stats"></div>
+
+		<h2>West Coast Association</h2>
+
+		<div id="wca-total-stats" class="zion-stats"></div>
+
+		<h2>Arizona</h2>
 
 		<div id="az-total-stats" class="zion-stats"></div>
 
-		<!--
-		<div class="row">
-
-			<?php /* foreach($sortedLeaderArray as $key=>$groupArray) { ?>
-
-				<div class="zion-stats" id="group-stats<?php echo $key; ?>"></div>
-					
-			<?php } */?>
-
-		</div>
-		-->
-
-			
+		<br><hr><br>
 		
 		<h1>Bear Good Fruit!</h1>
 		<img src="images/wah.png" class="img-thumbnail">
