@@ -65,7 +65,7 @@
 	$westCoatAssociationData['baptism'] = 79;
 	$westCoatAssociationData['attendance'] = 3;
 
-	$lastUpdate = '5:30am ' . Date('M d, Y');
+	$lastUpdate = '5:30am ' . 'Oct 16, 2019'; //Date('M d, Y');
 
 	
 	include("./views/v_usa-stats.php");
