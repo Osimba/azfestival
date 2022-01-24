@@ -1,0 +1,15 @@
+{
+    "name": "osiqu/azfestival",
+    "autoload": {
+        "psr-4": {
+            "Osiqu\\Azfestival\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Osimba",
+            "email": "osiqua@gmail.com"
+        }
+    ],
+    "require": {}
+}
